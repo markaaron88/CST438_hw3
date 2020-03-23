@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>City form</title>
+</head>
+<body>
+    <h2>Create City</h2>
+    <form action="#" th:action="@{/cities/new}" th:object="${city}" method = "post">
+    City Name: <input type="text" th:field="*{name}" /> <br/>
+        <!-- If validation fails, error is printed in this span -->
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </span>  <br/>
+    
+    Country Code: <input type="text" th:field="*{countryCode}" /> <br/>
+        <span th:if="${#fields.hasErrors('countryCode')}" th:errors="*{countryCode}"> </span>  <br/>
+    
+    District: <input type="text" th:field="*{district}" /> <br/>
+        <span th:if="${#fields.hasErrors('district')}" th:errors="*{district}"> </span>  <br/>
+    
+    Population: <input type="text" th:field="*{population}" /> <br/>
+        <span th:if="${#fields.hasErrors('population')}" th:errors="*{population}"> </span>  <br/>
+    
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
